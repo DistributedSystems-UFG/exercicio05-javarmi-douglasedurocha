@@ -21,6 +21,9 @@ public class Server {
             // Bind the remote object's stub in the registry
             Naming.rebind("MyHello", obj);
 
+            TextServiceImpl textObj = new TextServiceImpl(5679);
+            Naming.rebind("MyTextService", textObj);
+
             System.err.println("Server ready");
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
